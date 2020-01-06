@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { Color } from '../../models/color';
 
@@ -19,32 +18,17 @@ export class ColorHomeComponent implements OnInit {
     { id: 4, name: 'purple' },
   ];
 
-  colorForm: FormGroup;
-
-  // private formBuilder: FormBuilder;
-
-  // constructor(formBuilder: FormBuilder) {
-  //   this.formBuilder = formBuilder;
-  // }
-
-  constructor(private formBuilder: FormBuilder) { }
+  constructor() { }
 
   ngOnInit() {
-
-    this.colorForm = this.formBuilder.group({
-      colorName: '',
-      // add additional form fields here...
-    });
   }
 
-  addColor() {
+  addColor(color: Color) {
 
     this.colors = this.colors.concat({
-      name: this.colorForm.value.colorName,
+      ...color,
       id: Math.max(...this.colors.map(c => c.id), 0) + 1,
     });
-
-    this.colorForm.reset();
 
   }
 

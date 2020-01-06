@@ -1,0 +1,9 @@
+<form [formGroup]="colorForm">
+  <div>
+    <label for="color-name-input">Color Name:</label>
+    <input type="text" id="color-name-input"
+      formControlName="colorName">
+  </div>
+
+  <button (click)="doSubmitColor()">{{buttonText}}</button>
+</form>
