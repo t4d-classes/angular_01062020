@@ -1,3 +1,17 @@
 <header>
   <h1>{{headerText}}</h1>
 </header>
+<ul>
+  <li *ngFor="let color of colors">
+    {{color.name}}
+  </li>
+</ul>
+
+<form [formGroup]="colorForm">
+  <div>
+    <label for="color-name-input">Color Name:</label>
+    <input type="text" id="color-name-input" formControlName="colorName">
+  </div>
+
+  <button (click)="addColor()">Add Color</button>
+</form>
