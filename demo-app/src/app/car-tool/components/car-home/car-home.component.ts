@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { Car } from '../../models/car';
 
@@ -17,29 +16,17 @@ export class CarHomeComponent implements OnInit {
     { id: 2, make: 'Tesla', model: 'S', year: 2016, color: 'red', price: 100000 },
   ];
 
-  carForm: FormGroup;
-
-  constructor(private formBuilder: FormBuilder) { }
+  constructor() { }
 
   ngOnInit() {
-
-    this.carForm = this.formBuilder.group({
-      make: '',
-      model: '',
-      year: 1900,
-      color: '',
-      price: 0,
-    });
   }
 
-  addCar() {
+  addCar(car: Car) {
 
     this.cars = this.cars.concat({
-      ...this.carForm.value,
+      ...car,
       id: Math.max(...this.cars.map(c => c.id), 0) + 1,
     });
-
-    this.carForm.reset();
 
   }
 
