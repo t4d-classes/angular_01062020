@@ -23,13 +23,17 @@ export class ColorHomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  addColor(color: Color) {
+  doAddColor(color: Color) {
 
     this.colors = this.colors.concat({
       ...color,
       id: Math.max(...this.colors.map(c => c.id), 0) + 1,
     });
 
+  }
+
+  doDeleteColor(colorId: number) {
+    this.colors = this.colors.filter(c => c.id !== colorId);
   }
 
 }
