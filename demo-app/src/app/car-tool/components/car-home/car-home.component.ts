@@ -21,13 +21,17 @@ export class CarHomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  addCar(car: Car) {
+  doAddCar(car: Car) {
 
     this.cars = this.cars.concat({
       ...car,
       id: Math.max(...this.cars.map(c => c.id), 0) + 1,
     });
 
+  }
+
+  doDeleteCar(carId: number) {
+    this.cars = this.cars.filter(c => c.id !== carId);
   }
 
 }
