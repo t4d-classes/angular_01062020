@@ -16,9 +16,15 @@ export class CarHomeComponent implements OnInit {
     { id: 2, make: 'Tesla', model: 'S', year: 2016, color: 'red', price: 100000 },
   ];
 
+  editCarId = -1;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  doEditCar(carId: number) {
+    this.editCarId = carId;
   }
 
   doAddCar(car: Car) {

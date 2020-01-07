@@ -3,17 +3,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Car } from '../../models/car';
 
 @Component({
-  selector: 'app-car-table',
-  templateUrl: './car-table.component.html',
-  styleUrls: ['./car-table.component.css']
+  selector: '.app-car-view-row',
+  templateUrl: './car-view-row.component.html',
+  styleUrls: ['./car-view-row.component.css']
 })
-export class CarTableComponent implements OnInit {
+export class CarViewRowComponent implements OnInit {
 
   @Input()
-  cars: Car[] = [];
-
-  @Input()
-  editCarId = -1;
+  car: Car = {} as Car;
 
   @Output()
   editCar = new EventEmitter<number>();
@@ -33,5 +30,4 @@ export class CarTableComponent implements OnInit {
   doDeleteCar(carId: number) {
     this.deleteCar.emit(carId);
   }
-
 }
