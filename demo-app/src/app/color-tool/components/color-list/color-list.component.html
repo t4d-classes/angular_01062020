@@ -1,7 +1,7 @@
 <ul>
   <ng-container *ngFor="let color of colors">
     <li>
-      {{color.name}}
+      {{color.name | uppercase}}
       <button (click)="doDeleteColor(color.id)">X</button>
     </li>
     <li>{{color.name.toUpperCase()}}</li>

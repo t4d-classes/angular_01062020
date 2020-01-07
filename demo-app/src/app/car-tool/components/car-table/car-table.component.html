@@ -19,7 +19,9 @@
         (deleteCar)="doDeleteCar($event)"></tr>
       <tr *ngIf="car.id === editCarId"
         class="app-car-edit-row"
-        [car]="car"></tr>
+        [car]="car"
+        (saveCar)="doSaveCar($event)"
+        (cancelCar)="doCancelCar()"></tr>
     </ng-container>
   </tbody>
 </table>
