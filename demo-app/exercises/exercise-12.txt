@@ -1,0 +1,12 @@
+Exercise 12
+
+1. In the Car Tool, replace the archive toggle button with a checkbox. If you do not have a toggle button, then implement it now with the checkbox.
+
+2. For the checkbox, do not use a form group, use a form control connected to the input checkbox
+
+3. Move the logic for comparing the car id and the editCarId along with the check for the archive to a function in the component.
+
+When the checkbox is checked, show the archived. When the checkbox is not checked, do not show the archived.
+
+
+

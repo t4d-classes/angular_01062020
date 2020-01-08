@@ -1,0 +1,32 @@
+
+<div [formGroup]="myForm">
+
+  <div>
+    <label>Message</label>
+    <input type="text" formControlName="message">
+    <!-- Option 1: Know CSS -->
+    <span>Message is required!</span>
+    <!-- Option 2: Do not know CSS -->
+    <span *ngIf="messageInvalid">
+      Message is required!!!
+    </span>
+  </div>
+
+  <div>
+    <label>Age:</label>
+    <input type="number" formControlName="age">
+  </div>
+
+  <div>
+    <label>Is Customer:</label>
+    <input type="checkbox" formControlName="isCustomer">
+  </div>
+
+
+</div>
+
+<div>
+  {{myForm.value | json}}
+</div>
+
+
