@@ -1,0 +1,29 @@
+<ul>
+  <li *ngFor="let errorMessage of errorMessages">{{errorMessage}}</li>
+</ul>
+
+<form [formGroup]="contactForm">
+
+  <div>
+    <label>Full Name</label>
+    <input type="text" formControlName="fullName">
+  </div>
+
+  <p>Please enter an email address or a phone number.</p>
+
+  <div>
+    <label>Email Address</label>
+    <input type="text" formControlName="emailAddress">
+  </div>
+
+  <div>
+    <label>Phone Number</label>
+    <input type="text" formControlName="phoneNumber">
+  </div>
+
+  <button [disabled]="contactForm.invalid" (click)="displayFormContents()">
+    Send
+  </button>
+
+
+</form>
