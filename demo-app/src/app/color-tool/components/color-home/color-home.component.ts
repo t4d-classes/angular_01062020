@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Color } from '../../models/color';
+import { ColorsService } from '../../services/colors.service';
 
 @Component({
   selector: 'app-color-home',
@@ -11,16 +12,12 @@ export class ColorHomeComponent implements OnInit {
 
   headerText = 'Color Tool';
 
-  colors: Color[] = [
-    { id: 1, name: 'red' },
-    { id: 2, name: 'blue' },
-    { id: 3, name: 'gray' },
-    { id: 4, name: 'purple' },
-  ];
+  colors: Color[] = [];
 
-  constructor() { }
+  constructor(private colorsSvc: ColorsService) { }
 
   ngOnInit() {
+    this.colors = this.colorsSvc.all();
   }
 
   doAddColor(color: Color) {

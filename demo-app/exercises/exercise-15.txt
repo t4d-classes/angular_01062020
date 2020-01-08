@@ -1,0 +1,7 @@
+Exercise 15
+
+1. Create a cars service. Move all of the state management for cars to the cars service. This includes getting all of the cars, appending a car, replacing a car and deleting a car. And archiving too!
+
+2. Use the service in Car Home.
+
+3. Ensure the application works.
