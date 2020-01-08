@@ -30,6 +30,7 @@ export class CarEditRowComponent implements OnInit {
       year: this.car.year,
       color: this.car.color,
       price: this.car.price,
+      archived: this.car.archived,
     });
   }
 

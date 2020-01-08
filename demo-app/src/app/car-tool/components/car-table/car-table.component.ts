@@ -1,4 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component, OnInit, Input, Output, EventEmitter
+} from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 import { Car } from '../../models/car';
 
@@ -8,6 +11,8 @@ import { Car } from '../../models/car';
   styleUrls: ['./car-table.component.css']
 })
 export class CarTableComponent implements OnInit {
+
+  showArchived = new FormControl(false);
 
   @Input()
   cars: Car[] = [];
@@ -20,6 +25,9 @@ export class CarTableComponent implements OnInit {
 
   @Output()
   deleteCar = new EventEmitter<number>();
+
+  @Output()
+  archiveCar = new EventEmitter<number>();
 
   @Output()
   saveCar = new EventEmitter<Car>();
@@ -46,6 +54,14 @@ export class CarTableComponent implements OnInit {
 
   doCancelCar() {
     this.cancelCar.emit();
+  }
+
+  showView(car: Car) {
+    return (car.id !== this.editCarId) && (this.showArchived.value || !car.archived);
+  }
+
+  showEdit(car: Car) {
+    return (car.id === this.editCarId) && (this.showArchived.value || !car.archived);
   }
 
 }

@@ -1,3 +1,7 @@
+<div>
+  <input type="checkbox" id="show-archived-checkbox" [formControl]="showArchived">
+  <label for="show-archived-checkbox">Show Archived</label>
+</div>
 <table>
   <thead>
     <tr>
@@ -7,17 +11,19 @@
       <th>Year</th>
       <th>Color</th>
       <th>Price</th>
+      <th>Archived</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <ng-container *ngFor="let car of cars">
-      <tr *ngIf="car.id !== editCarId"
+      <tr *ngIf="showView(car)"
         class="app-car-view-row"
         [car]="car"
         (editCar)="doEditCar($event)"
-        (deleteCar)="doDeleteCar($event)"></tr>
-      <tr *ngIf="car.id === editCarId"
+        (deleteCar)="doDeleteCar($event)"
+        (archiveCar)="archiveCar.emit($event)"></tr>
+      <tr *ngIf="showEdit(car)"
         class="app-car-edit-row"
         [car]="car"
         (saveCar)="doSaveCar($event)"

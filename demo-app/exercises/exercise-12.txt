@@ -8,5 +8,10 @@ Exercise 12
 
 When the checkbox is checked, show the archived. When the checkbox is not checked, do not show the archived.
 
+Bonus
+
+1. In the Car Edit Row, make the archived column a checkbox and allow the archived status to be updated.
+
+2. Using the computer's camera technology, implement a pipe which will read the mind of the user and perform the desired action.
 
 

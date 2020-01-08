@@ -18,16 +18,11 @@ export class CarViewRowComponent implements OnInit {
   @Output()
   deleteCar = new EventEmitter<number>();
 
+  @Output()
+  archiveCar = new EventEmitter<number>();
+
   constructor() { }
 
   ngOnInit() {
-  }
-
-  doEditCar(carId: number) {
-    this.editCar.emit(carId);
-  }
-
-  doDeleteCar(carId: number) {
-    this.deleteCar.emit(carId);
   }
 }

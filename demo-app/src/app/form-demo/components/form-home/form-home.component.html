@@ -22,6 +22,37 @@
     <input type="checkbox" formControlName="isCustomer">
   </div>
 
+  <div>
+    <label>Rating:</label>
+    <div *ngFor="let starRating of starRatings">
+      <input type="radio" [id]=" starRating.text + '-stars-rating-input' "
+        name="rating" formControlName="rating" [value]="starRating.value">
+      <label [for]=" starRating.text + '-stars-rating-input' ">
+        {{starRating.value}} stars
+      </label>
+    </div>
+    
+    <!-- <div>
+      <input type="radio" id="five-stars-rating-input" name="rating" formControlName="rating" value="5">
+      <label for="five-stars-rating-input">5 stars</label>
+    </div>
+    <div>
+      <input type="radio" id="four-stars-rating-input" name="rating" formControlName="rating" value="4">
+      <label for="four-stars-rating-input">4 stars</label>
+    </div>
+    <div>
+      <input type="radio" id="three-stars-rating-input" name="rating" formControlName="rating" value="3">
+      <label for="three-stars-rating-input">3 stars</label>
+    </div>
+    <div>
+      <input type="radio" id="two-stars-rating-input" name="rating" formControlName="rating" value="2">
+      <label for="two-stars-rating-input">2 stars</label>
+    </div>
+    <div>
+      <input type="radio" id="one-stars-rating-input" name="rating" formControlName="rating" value="1">
+      <label for="one-stars-rating-input">1 stars</label>
+    </div> -->
+  </div>
 
 </div>
 

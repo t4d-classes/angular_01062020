@@ -5,4 +5,5 @@ export interface Car {
   year: number;
   color: string;
   price: number;
+  archived: boolean;
 }

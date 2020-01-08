@@ -12,8 +12,8 @@ export class CarHomeComponent implements OnInit {
   headerText = 'Car Tool';
 
   cars: Car[] = [
-    { id: 1, make: 'Ford', model: 'Fusion Hybrid', year: 2018, color: 'blue', price: 40000 },
-    { id: 2, make: 'Tesla', model: 'S', year: 2016, color: 'red', price: 100000 },
+    { id: 1, make: 'Ford', model: 'Fusion Hybrid', year: 2018, color: 'blue', price: 40000, archived: false },
+    { id: 2, make: 'Tesla', model: 'S', year: 2016, color: 'red', price: 100000, archived: false },
   ];
 
   editCarId = -1;
@@ -48,6 +48,26 @@ export class CarHomeComponent implements OnInit {
     const newCars = this.cars.concat();
     const carIndex = newCars.findIndex(c => c.id === car.id);
     newCars[carIndex] = car;
+    this.cars = newCars;
+    this.editCarId = -1;
+  }
+
+  doArchiveCar(carId: number) {
+    const newCars = this.cars.concat();
+    const carIndex = newCars.findIndex(c => c.id === carId);
+
+    // mutating the original car object - avoid this
+    // newCars[carIndex].archived = true;
+
+    // creates a copy, and update the copy then replace the original
+    // in the array
+    const carToArchive = {
+      ...newCars[carIndex],
+      archived: true,
+    } as Car;
+    newCars[carIndex] = carToArchive;
+
+
     this.cars = newCars;
     this.editCarId = -1;
   }
