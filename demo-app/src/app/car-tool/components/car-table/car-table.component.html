@@ -2,6 +2,9 @@
   <input type="checkbox" id="show-archived-checkbox" [formControl]="showArchived">
   <label for="show-archived-checkbox">Show Archived</label>
 </div>
+<div>
+  <p>{{msg}}</p>
+</div>
 <table>
   <thead>
     <tr>
@@ -27,7 +30,8 @@
         class="app-car-edit-row"
         [car]="car"
         (saveCar)="doSaveCar($event)"
-        (cancelCar)="doCancelCar()"></tr>
+        (cancelCar)="doCancelCar()"
+        (msg)="handleMsg($event)"></tr>
     </ng-container>
   </tbody>
 </table>

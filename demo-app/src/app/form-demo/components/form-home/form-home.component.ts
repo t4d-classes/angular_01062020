@@ -1,6 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+const myRequiredValidator = (formControl: FormControl) => {
+  if (formControl.value == null || (String(formControl.value).length === 0)) {
+    return {
+      myRequired: true,
+    };
+  }
+  // control is valid
+  return null;
+};
+
+const myMinLengthValidator = (minLength: number) => {
+  return (formControl: FormControl) => {
+    const l = String(formControl.value).length;
+    if (formControl.value != null && (l > 0 && l < minLength)) {
+      return {
+        myMinLength: true,
+        contentLength: l,
+        minLength,
+      };
+    }
+    return null;
+  };
+};
+
 @Component({
   selector: 'app-form-home',
   templateUrl: './form-home.component.html',
@@ -38,7 +62,7 @@ export class FormHomeComponent implements OnInit {
   ngOnInit() {
 
     this.message = new FormControl('', {
-      validators: [ Validators.required ],
+      validators: [ myRequiredValidator, myMinLengthValidator(3) ],
     });
 
     this.age = new FormControl(0);

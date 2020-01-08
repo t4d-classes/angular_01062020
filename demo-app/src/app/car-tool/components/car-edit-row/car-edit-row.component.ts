@@ -1,7 +1,18 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 import { Car } from '../../models/car';
+
+const minNumberValidator = (minNumber: number) => {
+  return (formControl: FormControl) => {
+    if (Number(formControl.value) < minNumber) {
+      return {
+        minNumber: true,
+      };
+    }
+    return null;
+  };
+};
 
 @Component({
   selector: '.app-car-edit-row',
@@ -19,7 +30,18 @@ export class CarEditRowComponent implements OnInit {
   @Output()
   cancelCar = new EventEmitter<void>();
 
+  @Output()
+  msg = new EventEmitter<string>();
+
   editCarForm: FormGroup;
+
+  colorItems = [
+    { value: 'red', caption: 'Red' },
+    { value: 'blue', caption: 'Blue' },
+    { value: 'green', caption: 'Green' },
+    { value: 'yellow', caption: 'Yellow' },
+    { value: 'saffron', caption: 'Saffron' },
+  ];
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -27,22 +49,30 @@ export class CarEditRowComponent implements OnInit {
     this.editCarForm = this.formBuilder.group({
       make: this.car.make,
       model: this.car.model,
-      year: this.car.year,
+      year: [ this.car.year, { validators: [ minNumberValidator(1885) ] } ],
       color: this.car.color,
-      price: this.car.price,
+      price: [ this.car.price, { validators: Validators.min(0) } ],
       archived: this.car.archived,
     });
   }
 
   doSaveCar() {
-    this.saveCar.emit({
-      ...this.editCarForm.value,
-      id: this.car.id,
-    });
+
+    if (this.editCarForm.valid) {
+      this.saveCar.emit({
+        ...this.editCarForm.value,
+        id: this.car.id,
+      });
+      this.msg.emit('');
+    } else {
+      this.msg.emit('Form is invalid');
+    }
+
   }
 
   doCancelCar() {
     this.cancelCar.emit();
   }
+
 
 }

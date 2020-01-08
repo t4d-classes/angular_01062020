@@ -3,7 +3,11 @@
   <td><input type="text" formControlName="make"></td>
   <td><input type="text" formControlName="model"></td>
   <td><input type="number" formControlName="year"></td>
-  <td><input type="text" formControlName="color"></td>
+  <td><select formControlName="color">
+    <option *ngFor="let colorItem of colorItems" [value]="colorItem.value">
+      {{colorItem.caption}}
+    </option>
+  </select></td>
   <td><input type="number" formControlName="price"></td>
   <td><input type="checkbox" formControlName="archived"></td>
   <td>

@@ -35,6 +35,8 @@ export class CarTableComponent implements OnInit {
   @Output()
   cancelCar = new EventEmitter<void>();
 
+  msg = '';
+
   constructor() { }
 
   ngOnInit() {
@@ -64,4 +66,7 @@ export class CarTableComponent implements OnInit {
     return (car.id === this.editCarId) && (this.showArchived.value || !car.archived);
   }
 
+  handleMsg(msg: string) {
+    this.msg = msg;
+  }
 }

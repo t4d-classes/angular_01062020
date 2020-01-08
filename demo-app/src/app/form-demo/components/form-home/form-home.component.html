@@ -10,6 +10,8 @@
     <span *ngIf="messageInvalid">
       Message is required!!!
     </span>
+
+    {{myForm.get('message').errors | json}}
   </div>
 
   <div>

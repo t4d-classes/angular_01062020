@@ -1,0 +1,13 @@
+Exercise 14
+
+GitHub URL: https://github.com/t4d-classes/angular_01062020
+
+1. In the Car Edit Row, please make the color be displayed as a drop down. In the drop down, list 5 of your favorite colors.
+
+2. In the Car Edit Row, update the price columm to validate that the price is greater than or equal to 0.
+
+3. In the Car Edit Row, update the year column to validate that the year is greater than or equal to the year the automobile was invented.
+
+4. If the a column is invalid, and the user clicks 'Save', display an error message above the table. Error message does not have to be specific. Then when they fix the error, allow them to save.
+
+5. Ensure it works.
