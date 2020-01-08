@@ -54,6 +54,19 @@
     </div> -->
   </div>
 
+
+  <div>
+    <label for="day-select">Day of the Week</label>
+    <select id="day-select" formControlName="dayOfTheWeek">
+      <option *ngFor="let day of days" [value]="day.value">{{day.label}}</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="comments-textarea">Comments</label>
+    <textarea id="comments-textarea" formControlName="comments"></textarea>
+  </div>
+
 </div>
 
 <div>

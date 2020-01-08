@@ -22,6 +22,17 @@ export class FormHomeComponent implements OnInit {
     { id: 5, text: 'first', value: '1' },
   ];
 
+  days = [
+    { id: 1, label: 'Sunday', value: '5UN' },
+    { id: 2, label: 'Monday', value: 'MON' },
+    { id: 3, label: 'Tuesday', value: 'TUE' },
+    { id: 4, label: 'Wednesday', value: 'WED' },
+    { id: 5, label: 'Thursday', value: 'THU' },
+    { id: 6, label: 'Friday', value: 'FRI' },
+    { id: 7, label: 'Saturday', value: 'SAT' },
+  ];
+
+
   constructor() { }
 
   ngOnInit() {
@@ -37,6 +48,8 @@ export class FormHomeComponent implements OnInit {
       age: this.age,
       isCustomer: new FormControl(false),
       rating: new FormControl('5'),
+      dayOfTheWeek: new FormControl('WED'),
+      comments: new FormControl('comments'),
     });
   }
 
