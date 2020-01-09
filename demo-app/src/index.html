@@ -9,5 +9,320 @@
 </head>
 <body>
   <app-root></app-root>
+  <!-- <button id="run-demo-button">Run Demo</button> -->
+  <script>
+  
+    // function outer() {
+    //   let t = 2;
+
+    //   setTimeout(() => {
+    //     t = 4;
+    //   }, 2000);
+
+    //   return function inner() {
+    //     console.log(t);
+    //   };
+    // }
+
+    // const innerFn = outer();
+
+    // innerFn();
+
+    // setTimeout(() => {
+    //   innerFn();
+    // }, 4000);
+
+    // setTimeout(() => {
+
+    //   console.log('hello!');
+
+    // }, 0);
+
+    // console.log('made it here...');
+
+    // setTimeout(() => {
+    //     console.log('a');
+    //     setTimeout(() => {
+    //         console.log('b');
+    //         setTimeout(() => {
+    //             console.log('c');
+    //         }, 500);
+    //     }, 1000);
+    // }, 2000);
+
+
+    // function theDemo() {
+
+    // function allDone() {
+    //   console.log('all done');
+    // }
+
+    // let counter = 0;
+
+    // counter++;
+    // setTimeout(function A() {
+    //   console.log('a');
+    //   counter--;
+    //   if (counter === 0) {
+    //     allDone();
+    //   }
+    // }, 1000);
+
+    // console.log('did a');
+
+    // counter++;
+    // setTimeout(function B() {
+    //   console.log('b');
+    //   counter--;
+    //   if (counter === 0) {
+    //     allDone();
+    //   }
+    // }, 2000);
+
+    // console.log('did b');
+
+    // counter++;
+    // setTimeout(function C() {
+    //   console.log('c');
+    //   counter--;
+    //   if (counter === 0) {
+    //     allDone();
+    //   }
+    // }, 3000);
+
+    // console.log('did c');
+
+
+    // }
+
+    // Call all three setTimeouts in the first task. When all three timeouts have completed
+    // run the allDone function. You cannot wrap the allDone function in its own setTimeout
+    // with a longer delay, and the timeout delays for the a, b, c should be viewed as random
+
+    // document.querySelector('#run-demo-button').addEventListener('click', theDemo);
+
+    // const proposeMarriage = () => {
+    //   return new Promise(function youngLady(resolve, reject) {
+
+    //     setTimeout(() => {
+    //       console.log('yay, she says yes to the dress...');
+    //       resolve("we are madly in love, let's tie the knot...");
+    //       // console.log('she says no, my number is no, my name is no, my sign is no...')
+    //       // reject("she fell in love with the young man's best friend, say to the dress for someone else");
+    //     }, 2000);
+
+    //   });
+    // };
+
+    // const findALocation = () => {
+    //   return new Promise(function(resolve) {
+
+    //     setTimeout(() => {
+    //       console.log('found a place');
+    //       resolve('found a place');
+    //     }, 2000);
+
+    //   });
+    // };
+
+    // const findSomeClothes = () => {
+    //   return new Promise(function(resolve) {
+
+    //     setTimeout(() => {
+    //       console.log('found something to wear');
+    //       resolve('found something to wear');
+    //     }, 2000);
+
+    //   });
+    // };
+
+    // proposeMarriage()
+    //   .then(results => {
+    //     console.log(results);
+    //     return findALocation();
+    //   })
+    //   .then(results => {
+    //     console.log(results);
+    //     return findSomeClothes();
+    //   })
+    //   .then(results => {
+    //     console.log(results);
+    //   });
+
+    // async function getMarried() {
+
+    //   const r1 = await proposeMarriage();
+    //   console.log(r1);
+
+    //   const r2 = await findALocation();
+    //   console.log(r2);
+
+    //   const r3 = await findSomeClothes();
+    //   console.log(r3);
+
+    // }
+
+
+
+    // const youngMan = new Promise(function youngLady(resolve, reject) {
+
+    //   setTimeout(() => {
+    //     console.log('yay, she says yes to the dress...');
+    //     resolve("we are madly in love, let's tie the knot...");
+    //     // console.log('she says no, my number is no, my name is no, my sign is no...')
+    //     // reject("she fell in love with the young man's best friend, say to the dress for someone else");
+    //   }, 2000);
+
+    // });
+
+    // youngMan
+    //   .then((results) => {
+    //     console.log('yay, we are getting married!');
+    //     console.log(results);
+
+    //     console.log('find a place to get married...');
+    //     return new Promise(function(resolve) {
+
+    //       setTimeout(() => {
+    //         console.log('found a place');
+    //         resolve('found a place');
+    //       }, 2000);
+
+    //     });
+    //   })
+    //   .then(results => {
+
+    //     console.log(results);
+
+    //     console.log('find some wedding clothes...');
+    //     return new Promise(function(resolve) {
+
+    //       setTimeout(() => {
+    //         console.log('found something to wear');
+    //         resolve('found something to wear');
+    //       }, 2000);
+
+    //     });
+
+    //   })
+    //   .then(results => {
+    //     console.log(results)
+    //   })
+    //   .catch((results) => {
+    //     console.log('time to sign up for eHarmony to find a more compatible match');
+    //     console.log(results);
+    //   });
+
+    // console.log('young man is waiting...');
+
+
+
+    
+
+
+    // function myFetch(url) {
+
+    //   return new Promise(function(resolve, reject) {
+
+    //     const xhr = new XMLHttpRequest();
+
+    //     xhr.addEventListener('readystatechange', () => {
+
+    //       if (xhr.status === 200 && xhr.readyState === 4) {
+    //         resolve(JSON.parse(xhr.responseText));
+    //       }
+
+    //     });
+
+    //     xhr.open('GET', url);
+    //     xhr.send();        
+
+    //   });
+
+    // }
+
+    // Lab Exercise
+    // Using the example of young man/lady promise demo and the above code with XHR object, construct for the following API function named myFetch. Do not worry about handling errors or reject.
+
+    // async function getAllCars() {
+
+    //   const cars = await myFetch('http://localhost:4250/cars')
+
+    //   return cars.map(c => {
+    //     return {
+    //       make: c.make,
+    //       model: c.model,
+    //     };
+    //   });
+    // }
+
+    // getAllCars().then(cars => console.log(cars));
+
+    // const p = new Promise(resolve => {
+    //   setTimeout(() => {
+    //     resolve('a');
+    //   }, 2000);
+    // });
+
+    // const p1 = new Promise(resolve => setTimeout(() => resolve('a'), 2000));
+    // const p2 = new Promise(resolve => setTimeout(() => resolve('b'), 4000));
+    // const p3 = new Promise(resolve => setTimeout(() => resolve('c'), 6000));
+    // const p4 = new Promise(resolve => setTimeout(() => resolve('d'), 8000));
+
+    // p1.then(results => console.log('done: ' + results));
+    // p2.then(results => console.log('done: ' + results));
+    // p3.then(results => console.log('done: ' + results));
+    // p4.then(results => console.log('done: ' + results));
+
+    // Promise.all( [ p1, p2, p3, p4 ] ).then(results => {
+
+    //   console.log(results);
+    //   console.log('all done');
+    
+    // });
+
+    // fetch('http://localhost:4250/cars')
+    //   .then(res => res.json())
+    //   .then(cars => console.log(cars));
+
+    // fetch('http://localhost:4250/cars', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({ make: 'Ford', model: 'T', year: 1912, color: 'black', price: 400 }),
+    // })
+    //   .then(res => res.json())
+    //   .then(car => console.log(car));
+
+    // fetch('http://localhost:4250/cars/7', {
+    //   method: 'DELETE',
+    // }).then(res => res.json());
+
+    // Lab Exercise
+
+    // Retrieve all cars, then delete all cars with an id > 2, then retrieve all of the cars again.
+
+    // Helpful Hint: Consider using the filter function to help select the cars to delete. And consider using the map function for transforming cars into promises.
+
+    // fetch('http://localhost:4250/cars')
+    //   .then(res => res.json())
+    //   .then(cars => Promise.all(
+    //     cars
+    //       .filter(c => c.id > 2)
+    //       .map(c => fetch('http://localhost:4250/cars/' + c.id, { method: 'DELETE'}))
+    //   ))
+    //   .then(() => fetch('http://localhost:4250/cars'))
+    //   .then(res => res.json())
+    //   .then(cars => {
+    //     console.log(cars);
+    //   });
+
+
+
+
+
+    
+  </script>
 </body>
 </html>
