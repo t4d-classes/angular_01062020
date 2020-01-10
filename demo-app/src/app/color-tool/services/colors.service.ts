@@ -7,15 +7,19 @@ import { Color } from '../models/color';
 })
 export class ColorsService {
 
-  private colors: Color[] = [
-    { id: 1, name: 'red' },
-    { id: 2, name: 'green' },
-    { id: 3, name: 'blue' }
-  ];
+  // private colors: Color[] = [
+  //   { id: 1, name: 'red' },
+  //   { id: 2, name: 'green' },
+  //   { id: 3, name: 'blue' }
+  // ];
 
   constructor() { }
 
   all() {
-    return this.colors;
+    return [
+      { id: 1, name: 'red' },
+      { id: 2, name: 'green' },
+      { id: 3, name: 'blue' }
+    ];
   }
 }

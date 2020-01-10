@@ -1,23 +1,10 @@
 <app-tool-header [headerText]="headerText"></app-tool-header>
 
+<button (click)="doRefreshColors()">Refresh</button>
+
 <app-color-list [colors]="colors" (deleteColor)="doDeleteColor($event)"></app-color-list>
 
 <div class="app-color-form"
   buttonText="Add Color"
   (submitColor)="doAddColor($event)"></div>
 
-Car Table Comp
-
-<table>
-  <tbody>
-    <tr class="app-car-view-row">
-      <td>1</td>
-<td>Ford</td>
-    </tr>
-  </tbody>
-</table>
-
-Car View Row Comp
-
-<td>1</td>
-<td>Ford</td>

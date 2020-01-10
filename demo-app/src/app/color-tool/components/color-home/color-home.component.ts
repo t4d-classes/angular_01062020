@@ -33,4 +33,9 @@ export class ColorHomeComponent implements OnInit {
     this.colors = this.colors.filter(c => c.id !== colorId);
   }
 
+  doRefreshColors() {
+    console.log('refresh colors');
+    this.colors = this.colorsSvc.all();
+  }
+
 }

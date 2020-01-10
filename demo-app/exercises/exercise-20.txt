@@ -1,0 +1,9 @@
+Exercise 20
+
+1. Upgrade add, save, delete and archive to use the pipe approach to avoid nested subscribes.
+
+2. Add error handling to add, save, delete and archive.
+
+3. When an error occurs, display the error message above the table.
+
+4. Ensure it all works.

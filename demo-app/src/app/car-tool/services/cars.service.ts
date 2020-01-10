@@ -1,5 +1,7 @@
 import { Injectable, InjectionToken } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Car } from '../models/car';
 import { ApiUrlService } from './api-url.service';
@@ -7,11 +9,11 @@ import { ApiUrlService } from './api-url.service';
 export const carsServiceToken = new InjectionToken('Cars Service Token');
 
 export interface ICarsService {
-  allCars(): Promise<Car[]>;
-  appendCar(car: Car): Promise<Car>;
-  replaceCar(car: Car): Promise<Car>;
-  removeCar(carId: number): Promise<void>;
-  archiveCar(carId: number): Promise<Car>;
+  allCars(): Observable<Car[]>;
+  appendCar(car: Car): Observable<Car>;
+  replaceCar(car: Car): Observable<Car>;
+  removeCar(carId: number): Observable<void>;
+  archiveCar(carId: number): Observable<Car>;
 }
 
 @Injectable({
@@ -26,32 +28,27 @@ export class CarsService implements ICarsService {
 
   allCars() {
     return this.httpClient
-      .get<Car[]>(this.carsApiUrl.url)
-      .toPromise();
+      .get<Car[]>(this.carsApiUrl.url);
   }
 
   appendCar(car: Car) {
     return this.httpClient
-      .post<Car>(this.carsApiUrl.url, car)
-      .toPromise();
+      .post<Car>(this.carsApiUrl.url, car);
   }
 
   removeCar(carId: number) {
     return this.httpClient
-      .delete<void>(this.carsApiUrl.url + '/' + carId)
-      .toPromise();
+      .delete<void>(this.carsApiUrl.url + '/' + carId);
   }
 
   replaceCar(car: Car) {
     return this.httpClient
-      .put<Car>(this.carsApiUrl.url + '/' + car.id, car)
-      .toPromise();
+      .put<Car>(this.carsApiUrl.url + '/' + car.id, car);
   }
 
   archiveCar(carId: number) {
     return this.httpClient
-      .patch<Car>(this.carsApiUrl.url + '/' + carId, { archived: true })
-      .toPromise();
+      .patch<Car>(this.carsApiUrl.url + '/' + carId, { archived: true });
   }
 
 

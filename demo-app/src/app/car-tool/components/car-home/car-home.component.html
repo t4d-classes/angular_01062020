@@ -5,6 +5,7 @@
 <app-car-table
   [cars]="cars"
   [editCarId]="editCarId"
+  [errorMessage]="errorMessage"
   (editCar)="doEditCar($event)"
   (deleteCar)="doDeleteCar($event)"
   (archiveCar)="doArchiveCar($event)"

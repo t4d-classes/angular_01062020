@@ -1,9 +1,23 @@
-<ul>
-  <ng-container *ngFor="let color of colors">
+<form [formGroup]="colorsForm">
+
+  <button (click)="doShowFormValue()">Show Form Value</button>
+
+  <ul formArrayName="colors">
+    <ng-container *ngFor="let color of colors; let i = index; trackBy: colorTrackBy">
+      <li [formGroupName]="i">
+        <input type="text" formControlName="name">
+        <button (click)="doDeleteColor(color.id)">X</button>
+      </li>
+    </ng-container>
+  </ul>
+</form>
+
+
+<!-- <ul>
+  <ng-container *ngFor="let color of colors; let i = index; index as i2; even as even; odd as odd; first as first; last as last; trackBy: colorTrackBy">
     <li>
-      {{color.name | uppercase}}
+      {{i2}} {{color.name}} {{even}} {{first}}
       <button (click)="doDeleteColor(color.id)">X</button>
     </li>
-    <li>{{color.name.toUpperCase()}}</li>
   </ng-container>
-</ul>
+</ul> -->

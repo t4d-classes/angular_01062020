@@ -10,22 +10,24 @@
       "archived": false
     },
     {
-      "id": 2,
       "make": "Tesla",
       "model": "S",
       "year": 2016,
       "color": "red",
       "price": 100000,
-      "archived": false
-    },
-    {
-      "make": "a",
-      "model": "a",
-      "year": 1900,
-      "color": "a",
-      "price": 0,
-      "id": 3,
-      "archived": true
+      "archived": false,
+      "id": 2
     }
+  ],
+  "colors": [
+    { "id": 1, "name": "red" },
+    { "id": 2, "name": "blue" },
+    { "id": 3, "name": "orange" },
+    { "id": 4, "name": "brown" },
+    { "id": 5, "name": "yellow" },
+    { "id": 6, "name": "purple" },
+    { "id": 7, "name": "pink" },
+    { "id": 8, "name": "black" },
+    { "id": 9, "name": "white" }
   ]
 }

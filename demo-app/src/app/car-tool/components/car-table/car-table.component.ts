@@ -20,6 +20,9 @@ export class CarTableComponent implements OnInit {
   @Input()
   editCarId = -1;
 
+  @Input()
+  errorMessage = '';
+
   @Output()
   editCar = new EventEmitter<number>();
 

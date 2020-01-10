@@ -4,10 +4,7 @@
 
 <form [formGroup]="contactForm">
 
-  <div>
-    <label>Full Name</label>
-    <input type="text" formControlName="fullName">
-  </div>
+  <app-full-name formControlName="fullName"></app-full-name>
 
   <p>Please enter an email address or a phone number.</p>
 

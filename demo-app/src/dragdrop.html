@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html>
+
+<head>
+  <title>Drag Drop Demo</title>
+  <style>
+
+    .blue-box {
+      background-color: blue;
+      border: 1px solid blue;
+      height: 100px;
+      width: 100px;
+      position: float;
+      float: left;
+    }
+
+    .red-box {
+      background-color: red;
+      border: 1px solid red;
+      height: 200px;
+      width: 200px;
+      position: float;
+      float: right;
+    }
+
+
+  </style>
+</head>
+
+<body>
+
+  <div id="blue-box" class="blue-box" draggable="true"></div>
+
+  <div id="red-box" class="red-box" dropzone="true"></div>
+
+  <script>
+
+    document.querySelector('#blue-box').addEventListener('dragstart', (e) => {
+      e.dataTransfer.setData('item', e.target.id);
+      console.log('start drag: ' + e.target.id);
+    });
+
+    document.querySelector('#blue-box').addEventListener('drag', (e) => {
+      console.log('dragging');
+    });
+
+    document.querySelector('#red-box').addEventListener('dragover', (e) => {
+      e.preventDefault();
+    });
+
+    document.querySelector('#red-box').addEventListener('drop', (e) => {
+      e.preventDefault();
+      console.log('dropped: ' + e.dataTransfer.getData('item'));
+      console.log(e);
+
+      document.querySelector('#red-box').appendChild(document.querySelector('#' + e.dataTransfer.getData('item')));
+    });
+  
+  </script>
+</body>
+
+</html>
