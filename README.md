@@ -40,3 +40,5 @@ Breaks:
 
 - [Accelebrate](https://www.accelebrate.com/)
 - [WintellectNOW](https://www.wintellectnow.com/Home/Instructor?instructorId=EricGreene) - Special Offer Code: T4DCLASS
+- [Angular Tutorials](https://www.accelebrate.com/library/tutorials)
+- [File Upload Blog Posts](https://www.accelebrate.com/blog/category/javascript?start=11)
