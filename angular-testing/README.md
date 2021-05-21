@@ -10,5 +10,5 @@ Content Outline:
 Run tests with code coverage and watching disabled
 
 ```bash
-ng test --watch=false --code-coverage
+npx jest --watch=false --coverage
 ```
